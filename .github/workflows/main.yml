@@ -1,40 +1,13 @@
-
+name: Cypress tests
 on: push
-
 jobs:
-  install:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Cypress install
-        uses: cypress-io/github-action@v6
-        with:
-          # Disable running of tests within install job
-          runTests: false
-
-      - name: Save build folder
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          if-no-files-found: error
-          path: build
-
   cypress-run:
     runs-on: ubuntu-22.04
-    needs: install
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Download the build folder
-        uses: actions/download-artifact@v3
-        with:
-          name: build
-          path: build
-
-      - name: Cypress run
+      - name: Cypress run with env
         uses: cypress-io/github-action@v6
         with:
-          browser: chrome
+          env: host=api.dev.local,port=4222
