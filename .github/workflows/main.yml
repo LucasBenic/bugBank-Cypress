@@ -10,7 +10,7 @@ jobs:
       - name: Cypress run with secret
         uses: cypress-io/github-action@v6
         env:
-          PASS_BUG: ${{ secrets.PASS_BUG }}
+          Cypress_PASS_BUG: ${{ secrets.PASS_BUG }}
 
       - uses: actions/upload-artifact@v4
         with:
