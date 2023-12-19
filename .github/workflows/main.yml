@@ -4,6 +4,7 @@ jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     strategy:
+      fail-fast: false
       matrix:
         browser: [chrome, firefox]
     steps:
@@ -20,7 +21,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: cypress-screenshots
+          name: cypress-screenshots-${{ matrix.browser }}
           path: cypress/screenshots
           if-no-files-found: ignore
           if: always
@@ -28,6 +29,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: cypress-videos
+          name: cypress-videos-${{ matrix.browser }}
           path: cypress/videos
           if-no-files-found: ignore
