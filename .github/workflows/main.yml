@@ -9,6 +9,8 @@ jobs:
 
       - name: Cypress run with secret
         uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
         env:
           Cypress_PASS_BUG: ${{ secrets.PASS_BUG }}
 
