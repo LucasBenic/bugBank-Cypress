@@ -3,6 +3,9 @@ on: push
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        browser: [chrome, firefox]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -10,7 +13,7 @@ jobs:
       - name: Cypress run with secret
         uses: cypress-io/github-action@v6
         with:
-          browser: chrome
+          browser: ${{ matrix.browser }}
         env:
           Cypress_PASS_BUG: ${{ secrets.PASS_BUG }}
 
