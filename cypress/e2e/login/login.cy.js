@@ -1,6 +1,6 @@
 describe('Login Functionality', () => {
   let user;
-  const pass = Cypress.env('password');
+  const pass = Cypress.env('PASS_BUG');
 
     const testCases = [
         { title: 'Successful Login', email: 'valid@email.com', password: pass, output: 'bem vindo ao BugBank :)' },

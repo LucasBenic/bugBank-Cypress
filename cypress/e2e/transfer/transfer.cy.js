@@ -1,6 +1,6 @@
 describe('Transfer Functionality', () => {
   let users;
-  const pass = Cypress.env('password');
+  const pass = Cypress.env('PASS_BUG');
   const accounts = [
     { name: 'lucas teste', email: 'lucas@email.com', password: pass, confirmation: pass, balance: true },
     { name: 'roberto teste', email: 'roberto@email.com', password: pass, confirmation: pass, balance: false },

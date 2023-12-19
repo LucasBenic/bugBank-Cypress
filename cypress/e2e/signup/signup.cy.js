@@ -1,5 +1,5 @@
 describe('Registration', () => {
-  const pass = Cypress.env('password');
+  const pass = Cypress.env('PASS_BUG');
   const testCases = [
     {
       title: 'Mandatory Fields',
