@@ -168,5 +168,3 @@ Cypress.Commands.add('getDate', () => {
 
     return `${day}/${month}/${year}`;
 })
-
-
