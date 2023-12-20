@@ -15,6 +15,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           record: true
+          parallel: true
           browser: ${{ matrix.browser }}
         env:
           Cypress_PASS_BUG: ${{ secrets.PASS_BUG }}
