@@ -14,9 +14,11 @@ jobs:
       - name: Cypress run with secret
         uses: cypress-io/github-action@v6
         with:
+          record: true
           browser: ${{ matrix.browser }}
         env:
           Cypress_PASS_BUG: ${{ secrets.PASS_BUG }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
       - uses: actions/upload-artifact@v4
         if: always()
@@ -24,7 +26,6 @@ jobs:
           name: cypress-screenshots-${{ matrix.browser }}
           path: cypress/screenshots
           if-no-files-found: ignore
-          if: always
 
       - uses: actions/upload-artifact@v4
         if: always()
