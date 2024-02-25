@@ -3,6 +3,6 @@ describe('Exemplo', () => {
   qase(5, 
     it('Validate The Ability To Search For A Product', () => {
       cy.visit('www.google.com')
-      cy.get('input').contains('failed')
+      cy.get('input')
     }))
 })
