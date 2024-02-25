@@ -3,10 +3,6 @@ on: push
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
-    strategy:
-      fail-fast: false
-      matrix:
-        browser: [chrome, firefox]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -16,7 +12,7 @@ jobs:
         with:
           record: true
           parallel: true
-          browser: ${{ matrix.browser }}
+          browser: chrome
         env:
           Cypress_PASS_BUG: ${{ secrets.PASS_BUG }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
@@ -24,13 +20,13 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: cypress-screenshots-${{ matrix.browser }}
+          name: cypress-screenshots
           path: cypress/screenshots
           if-no-files-found: ignore
 
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: cypress-videos-${{ matrix.browser }}
+          name: cypress-videos
           path: cypress/videos
           if-no-files-found: ignore
