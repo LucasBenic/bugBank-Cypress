@@ -11,6 +11,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install dependencies
+        run: npm install
+
       - name: Cypress run with secret
         uses: cypress-io/github-action@v6
         with:
