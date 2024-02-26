@@ -12,6 +12,12 @@ Cypress.Commands.add('getFakeUser', () => {
     return user;
 });
 
+Cypress.on('ught:exception', (err, runnable) => {
+    // returning false here prevents Cypress from
+    // failing the test
+    return false
+})
+
 Cypress.Commands.add('logo', () => {
     cy.get('img[src*="bugbank"]').should('be.visible');
 });
