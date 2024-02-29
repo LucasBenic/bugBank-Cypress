@@ -6,7 +6,6 @@ jobs:
   echo-staging:
     runs-on: ubuntu-latest
     steps:
-      - name: Debug environment variables
-        run: |
-          env
-          echo "STAGING value: ${{ vars.STAGING }}"
+    - name: Debug environment variables
+      run: env
+
