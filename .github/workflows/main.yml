@@ -16,6 +16,7 @@ jobs:
         with:
           browser: chrome
         env:
+          Cypress_ENVIRONMENT: ${{ ENVIRONMENT.STAGING}}
           Cypress_PASS_BUG: ${{ secrets.PASS_BUG }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           QASE_REPORT: 1
