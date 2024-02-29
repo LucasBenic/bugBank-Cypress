@@ -7,5 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo STAGING environment variable
-        run: echo ${{ vars.ENVIRONMENT.STAGING }}
+        run: echo ${{ vars.STAGING }}
       
