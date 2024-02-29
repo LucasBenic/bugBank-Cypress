@@ -1,38 +1,10 @@
-name: Cypress tests
-on: push
+name: Echo STAGING Environment Variable
+
+on: [push]
+
 jobs:
-  cypress-run:
-    if: "contains(github.event.head_commit.message, 'run ci')"
-    runs-on: ubuntu-22.04
+  echo-staging:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Cypress run with secret
-        uses: cypress-io/github-action@v6
-        with:
-          browser: chrome
-        env:
-          ENVIRONMENT: ${{ env.STAGING}}
-          Cypress_PASS_BUG: ${{ secrets.PASS_BUG }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          QASE_REPORT: 1
-          API_TOKEN: ${{ secrets.API_TOKEN }}
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-          if-no-files-found: ignore
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: cypress-videos
-          path: cypress/videos
-          if-no-files-found: ignore
-          
+      - name: Echo STAGING environment variable
+        run: echo ${{ env.STAGING }}
