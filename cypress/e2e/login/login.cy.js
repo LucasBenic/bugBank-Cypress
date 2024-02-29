@@ -4,7 +4,7 @@ describe('Exemplo', () => {
   const password = Cypress.env('PASS_BUG')
   qase(5, 
     it('Validate The Ability To Search For A Product', () => {
-      cy.visit('https://staging.felex.co')
+      cy.visit(Cypress.env('ENVIRONMENT'))
       cy.get('input[type="string"]').type('lprodocio22@gmail.com')
       cy.get('input[type="password"]').type(password, {log: false})
       cy.get('button:contains("Log in")').click()
