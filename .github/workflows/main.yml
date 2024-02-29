@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo STAGING environment variable
-        run: echo ${{ vars.STAGING }}
+        run: echo 'LUCAS'
