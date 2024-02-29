@@ -1,12 +1,11 @@
-on:
-  push:
-env:
-  STAGING: ${{ vars.ENVIRONMENT }}
+name: Echo STAGING Environment Variable
+
+on: [push]
 
 jobs:
-  teste:
-    name: Test Job
+  echo-staging:
     runs-on: ubuntu-latest
+    environment: staging
     steps:
       - name: Echo STAGING environment variable
-        run: echo ${{ env.STAGING }}
+        run: echo ${{ vars.APP_URL }}
