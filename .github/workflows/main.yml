@@ -8,7 +8,4 @@ jobs:
     steps:
       - name: Echo STAGING environment variable
         run: echo ${{ vars.ENVIRONMENT.STAGING }}
-      - name: Echo STAGING environment 2
-        run: echo ${{ vars.ENVIRONMENT_STAGING }}
-      - name: Echo STAGING environment 2
-        run: echo ${{ vars.ENVIRONMENT.STAGING }}
+      
